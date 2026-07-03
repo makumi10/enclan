@@ -37,7 +37,7 @@ Code: [`q2_django_api/`](./q2_django_api/)
 
 For authentication, I used DRF's token auth. A user logs in with their username/password at `/api/auth-token/` and gets a token back. From then on they attach that token to their requests (`Authorization: Token <token>`) so the API knows who they are.
 
-Authentication alone just tells you *who* someone is - it doesn't say what they're allowed to do. That's where authorization comes in. I stacked two permission checks:
+Authentication alone just tells you *who* someone is, it doesn't say what they're allowed to do. That's where authorization comes in. I stacked two permission checks:
 - Anyone can read posts (`GET`), but you need to be logged in to create one.
 - Even if you're logged in, you can only edit or delete a post if you're the one who wrote it. I wrote a small custom permission class for that (`IsOwnerOrReadOnly`) since DRF doesn't have this exact rule built in.
 
@@ -77,8 +77,8 @@ Why token auth and not just session auth: sessions rely on cookies, which work f
 
 ### 3. Making it easy for a non-technical owner
 
-1. Keep it visual and simple - big buttons, minimal text, everything reachable in a tap or two from the home screen. No digging through settings menus.
-2. Support the local language and use a big numeric keypad instead of a tiny keyboard. It should also work offline, since not every shop has stable internet - sales get saved locally and sync later.
+1. Keep it visual and simple: big buttons, minimal text, everything reachable in a tap or two from the home screen. No digging through settings menus.
+2. Support the local language and use a big numeric keypad instead of a tiny keyboard. It should also work offline, since not every shop has stable internet, sales get saved locally and sync later.
 
 ### 4. A mistake that could happen, and how to prevent it
 
